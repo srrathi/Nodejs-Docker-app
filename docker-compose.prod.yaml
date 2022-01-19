@@ -1,0 +1,11 @@
+version: "3"
+services:
+  node-app:
+  # TO AVOID DEV DEPENDENCIES FROM INSTALLING IN PRODUCTION WE ARE PASSING NODE_ENV ARGUMENT
+    build: 
+      context: .
+      args:
+        NODE_ENV: production
+    environment:
+      - NODE_ENV=production
+    command: node index.js

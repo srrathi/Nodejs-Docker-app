@@ -1,0 +1,14 @@
+version: "3"
+services:
+  node-app:
+  # TO AVOID DEV DEPENDENCIES FROM INSTALLING IN PRODUCTION WE ARE PASSING NODE_ENV ARGUMENT
+    build: 
+      context: .
+      args:
+        NODE_ENV: development
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
